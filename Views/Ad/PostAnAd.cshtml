@@ -1,0 +1,422 @@
+﻿@{
+    ViewBag.Title = "PostAnAd";
+}
+
+
+<head>
+    <title></title>
+
+
+
+
+</head>
+
+
+
+<div class="container ">
+
+
+    <i class="glyphicon"></i>
+    <div class="container">
+       
+        <hr>
+    
+
+            <!-- edit form column -->
+            <div class="col-md-9 personal-info">
+                <div class="alert alert-info alert-dismissable">
+                    <a class="panel-close close" data-dismiss="alert">×</a>
+                    <i class="fa fa-coffee"></i>
+                    This is an <strong>.alert</strong>. Use this to show important messages to the user.
+                </div>
+                <h3>Car info</h3>
+
+                <form class="form-horizontal" role="form" action="SaveAd" method="post" enctype="multipart/form-data">
+
+
+
+                    <div class="form-group">
+                        <label class="col-lg-3 control-label"> Accidental History</label>
+                        <div class="col-lg-8">
+                            <select id="user_time_zone" class="form-control" name="History" required="">
+                                <option value="">- Select History -</option>
+                                <option>Yes</option>
+                                <option>No</option>
+
+                            </select>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label class="col-lg-3 control-label">Colour:</label>
+                        <div class="col-lg-8">
+                            <select class="form-control" name="Colour" required="">
+                                <option value="">- Select Colour -</option>
+                                <option value="Beige" style="color:beige">Beige</option>
+                                <option value="Black" style="color:black">Black</option>
+                                <option value="Blue" style="color:blue">Blue</option>
+                                <option value="Brown" style="color:brown">Brown</option>
+                                <option value="Gold" style="color:gold">Gold</option>
+                                <option value="Green" style="color:green">Green</option>
+                                <option value="Grey" style="color:grey">Grey</option>
+                                <option value="Indigo" style="color:indigo">Indigo</option>
+                                <option value="Magenta" style="color:magenta">Magenta</option>
+                                <option value="Maroon" style="color:maroon">Maroon</option>
+                                <option value="Orange" style="color:orange">Orange</option>
+                                <option value="Pink" style="color:pink">Pink</option>
+                                <option value="Purple" style="color:purple">Purple</option>
+                                <option value="Red " style="color:red">Red</option>
+                                <option value="Silver" style="color:silver">Silver</option>
+                                <option value="Turquoise" style="color:turquoise">Turquoise</option>
+                                <option value="White" style="color:white">White</option>
+                                <option value="Yellow" style="color:yellow">Yellow</option>
+                                <option value="Unlisted">Unlisted</option>
+                            </select>
+
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+
+
+                        <label class="col-lg-3 control-label">Status:</label>
+                        <div class="col-lg-8">
+                            <select id="user_time_zone" class="form-control" required="" name="Status">
+
+                                <optgroup label="~ Select Status ~">
+                                    <option value="">- Select Status -</option>
+                                    <option>Used </option>
+                                    <option>New</option>
+                                </optgroup>
+
+                            </select>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label class="col-lg-3 control-label">Origin/Made</label>
+                        <div class="col-lg-8">
+                            <div class="ui-select">
+                                <select id="user_time_zone" class="form-control" required="" name="Origin">
+                                    <option value="">- Select Assembled -</option>
+
+                                    <option value='Local'>Local</option>
+                                    <option value='Imported'>Imported</option>
+
+
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label class="col-lg-3 control-label">Car Company</label>
+                        <div class="col-lg-8">
+                            <div class="ui-select">
+                                <select id="user_time_zone" class="form-control" required="" name="Company">
+                                    <optgroup label='Popular Makes'>
+                                        <option value="">- Select Company -</option>
+                                        <option>Suzuki</option>
+                                        <option>Toyota</option>
+                                        <option>Honda</option>
+                                        <option>Daihatsu</option>
+                                        <option>Hyundai</option>
+                                    </optgroup>
+                                    <optgroup label='Other Makes'>
+                                        <option>Adam</option>
+                                        <option>Alfa Romeo</option>
+                                        <option>Audi</option>
+                                        <option>Austin</option>
+                                        <option>Bentley</option>
+                                        <option>BMW</option>
+                                        <option>Buick</option>
+                                        <option>Cadillac</option>
+                                        <option>Changan</option>
+                                        <option>Chery</option>
+                                        <option>Chevrolet</option>
+                                        <option>Chrysler</option>
+                                        <option>Citroen</option>
+                                        <option>Classic Cars</option>
+                                        <option>Daewoo</option>
+                                        <option>Daimler</option>
+                                        <option>Datsun</option>
+                                        <option>DFSK</option>
+                                        <option>Dodge</option>
+                                        <option>FAW</option>
+                                        <option>Ferrari </option>
+                                        <option>Fiat</option>
+                                        <option>Ford</option>
+                                        <option>Geely</option>
+                                        <option>GMC</option>
+                                        <option>Golden Dragon</option>
+                                        <option>Golf</option>
+                                        <option>HILLMAN</option>
+                                        <option>Hino</option>
+                                        <option>Hummer</option>
+                                        <option>Isuzu</option>
+                                        <option>Jaguar</option>
+                                        <option>Jeep</option>
+                                        <option>Kaiser Jeep</option>
+                                        <option>Kia</option>
+                                        <option>Lada</option>
+                                        <option>Lamborghini</option>
+                                        <option>Land Rover</option>
+                                        <option>Lexus</option>
+                                        <option>Lincoln</option>
+                                        <option>Maserati</option>
+                                        <option>Master</option>
+                                        <option>Mazda</option>
+                                        <option>Mercedes Benz</option>
+                                        <option>MG</option>
+                                        <option>MINI</option>
+                                        <option>Mitsubishi</option>
+                                        <option>Morris</option>
+                                        <option>Moto Guzzi </option>
+                                        <option>Nissan</option>
+                                        <option>Oldsmobile</option>
+                                        <option>Opel</option>
+                                        <option>Others</option>
+                                        <option>Peugeot</option>
+                                        <option>Plymouth</option>
+                                        <option>Pontiac</option>
+                                        <option>Porsche</option>
+                                        <option>Proton</option>
+                                        <option>Range Rover</option>
+                                        <option>Renault</option>
+                                        <option>Rolls-Royce</option>
+                                        <option>Roma</option>
+                                        <option>Rover</option>
+                                        <option>Royal Enfield</option>
+                                        <option>Saab</option>
+                                        <option>Scion</option>
+                                        <option>Skoda</option>
+                                        <option>SMART</option>
+                                        <option>Sogo</option>
+                                        <option>Sokon</option>
+                                        <option>SsangYong</option>
+                                        <option>Subaru</option>
+                                        <option>Triumph</option>
+                                        <option>Vauxhall</option>
+                                        <option>Volkswagen</option>
+                                        <option>Volvo</option>
+                                        <option>Willys</option>
+                                    </optgroup>
+
+
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 control-label " style="align-items:flex-start">Model</label>
+                        <div class="col-md-8">
+                            <div class="ui-select">
+                                <select id="user_time_zone" class="form-control" name="Model">
+                                    <option value="">- Select Year -</option>
+                                    <option value='2015'>2015</option>
+                                    <option value='2014'>2014</option>
+                                    <option value='2013'>2013</option>
+                                    <option value='2012'>2012</option>
+                                    <option value='2011'>2011</option>
+                                    <option value='2010'>2010</option>
+                                    <option value='2009'>2009</option>
+                                    <option value='2008'>2008</option>
+                                    <option value='2007'>2007</option>
+                                    <option value='2006'>2006</option>
+                                    <option value='2005'>2005</option>
+                                    <option value='2004'>2004</option>
+                                    <option value='2003'>2003</option>
+                                    <option value='2002'>2002</option>
+                                    <option value='2001'>2001</option>
+                                    <option value='2000'>2000</option>
+                                    <option value='1999'>1999</option>
+                                    <option value='1998'>1998</option>
+                                    <option value='1997'>1997</option>
+                                    <option value='1996'>1996</option>
+                                    <option value='1995'>1995</option>
+                                    <option value='1994'>1994</option>
+                                    <option value='1993'>1993</option>
+                                    <option value='1992'>1992</option>
+                                    <option value='1991'>1991</option>
+                                    <option value='1990'>1990</option>
+                                    <option value='1989'>1989</option>
+                                    <option value='1988'>1988</option>
+                                    <option value='1987'>1987</option>
+                                    <option value='1986'>1986</option>
+                                    <option value='1985'>1985</option>
+                                    <option value='1984'>1984</option>
+                                    <option value='1983'>1983</option>
+                                    <option value='1982'>1982</option>
+                                    <option value='1981'>1981</option>
+                                    <option value='1980'>1980</option>
+                                    <option value='1979'>1979</option>
+                                    <option value='1978'>1978</option>
+                                    <option value='1977'>1977</option>
+                                    <option value='1976'>1976</option>
+                                    <option value='1975'>1975</option>
+                                    <option value='1974'>1974</option>
+                                    <option value='1973'>1973</option>
+                                    <option value='1972'>1972</option>
+                                    <option value='1971'>1971</option>
+                                    <option value='1970'>1970</option>
+                                    <option value='1969'>1969</option>
+                                    <option value='1968'>1968</option>
+                                    <option value='1967'>1967</option>
+                                    <option value='1966'>1966</option>
+                                    <option value='1965'>1965</option>
+                                    <option value='1964'>1964</option>
+                                    <option value='1963'>1963</option>
+                                    <option value='1962'>1962</option>
+                                    <option value='1961'>1961</option>
+                                    <option value='1960'>1960</option>
+                                    <option value='1959'>1959</option>
+                                    <option value='1958'>1958</option>
+                                    <option value='1957'>1957</option>
+                                    <option value='1956'>1956</option>
+                                    <option value='1955'>1955</option>
+                                    <option value='1954'>1954</option>
+                                    <option value='1953'>1953</option>
+                                    <option value='1952'>1952</option>
+                                    <option value='1951'>1951</option>
+                                    <option value='1950'>1950</option>
+                                    <option value='1949'>1949</option>
+                                    <option value='1948'>1948</option>
+                                    <option value='1947'>1947</option>
+                                    <option value='1946'>1946</option>
+                                    <option value='1945'>1945</option>
+                                    <option value='1944'>1944</option>
+                                    <option value='1943'>1943</option>
+                                    <option value='1942'>1942</option>
+                                    <option value='1941'>1941</option>
+                                    <option value='1940'>1940</option>
+
+
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">Registeration</label>
+                        <div class="col-md-8">
+                            <div class="ui-select">
+                                <select class="form-control" name="Registeration" required="">
+                                    <optgroup label="Unregistered"><option value="">Unregistered</option></optgroup>
+                                    <option value="">- Select Cities -</option>
+                                    <option>Lahore</option>
+                                    <option>Karachi</option>
+                                    <option>Islamabad</option>
+                                    <option>Rawalpindi</option>
+                                    <option>Peshawar</option>
+
+                                    <optgroup label="Other Cities">
+                                        <option>Other</option>
+
+                                    </optgroup>
+                                </select>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">Car Name:</label>
+                        <div class="col-md-8">
+                            <input class="form-control" type="text" required="" placeholder="Mehran, cultus,core vitz" name="Name">
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label class="col-lg-3 control-label">Mileage</label>
+                        <div class="col-lg-8">
+                            <div class="ui-button-text-only">
+                                <input type="text" name="Mileage" class="form-control" required="" placeholder="e.g 1000 km">
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label class="col-lg-3 control-label">Price</label>
+                        <div class="col-lg-8">
+                            <div class="ui-button-text-only">
+                                <input type="text" name="Price" class="form-control" required="" placeholder="e.g 500000">
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-lg-3 control-label">Show Your Car</label>
+                        <div class="col-lg-8">
+                            <div class="ui-button-text-only">
+                                Upload Image: <input type="file" max="4" name="Picture" required="" class="form-control" multiple />
+                                
+
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+
+
+                    <script>
+                        function Count(val) {
+                            var len = val.value.length;
+                            if (len >= 500) {
+                                val.value = val.value.substring(0, 500);
+                            } else {
+                                $('#charNum').text(500 - len);
+                            }
+                        };
+                    </script>
+
+
+
+
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">Describe Your Car</label>
+
+                        <div class="controls col-md-6">
+                            <textarea name="About" class="character-count ad_listing_description form-control" cols="40" columns="50" data-parsley-pattern-message="Please remove any mobile or phone number from comments." data-parsley-pattern="^(?:(?![0-9]{3}[- ]*[0-9]{7})(.|\n|\r))*$" data-parsley-remote-validator="validateDescription" data-parsley-remote="1" data-parsley-required="true" data-parsley-trigger="change" id="used_car_ad_listing_attributes_description" maxlength="995" name="used_car[ad_listing_attributes][description]" onblur="Count(this)" onkeydown="Count(this)" onkeypress="Count(this)" onkeyup="Count(this)" onpaste="Count(this)" placeholder="Example: Alloy rim, first owner, genuine parts, maintained by authorized workshop, excellent mileage, original paint etc." rows="6"></textarea>
+                            <i>Remaining Characters:</i>
+                            <font id="charNum"> (<strong>500</strong>)</font>
+
+                        </div>
+                    </div>
+
+
+
+
+                    <div class="form-group">
+                        <label class="col-md-3 control-label"></label>
+                        <div class="col-md-8">
+                            <input type="submit" class="btn btn-primary" value="Save Changes">
+                            <span></span>
+                            <input type="reset" class="btn btn-default" value="Reset">
+                        </div>
+                    </div>
+
+
+
+
+                </form>
+
+
+
+            </div>
+        </div>
+    </div>
+
+<hr>

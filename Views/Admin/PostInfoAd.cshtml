@@ -1,0 +1,99 @@
+﻿@{
+    ViewBag.Title = "PostInfoAd";
+}
+
+
+
+
+
+<head>
+    <title></title>
+
+    <link href="~/Content/bootstrap.css" rel="stylesheet">
+    <link href="~/Content/themes/bootstrap.min.css" rel="stylesheet">
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src=" ~/Scripts/bootstrap.js"> </script>
+
+</head>
+
+
+
+<div class="container ">
+    <form class="form-horizontal" role="form" action="SaveAd" method="post" enctype="multipart/form-data">
+
+
+        <div class="form-group">
+
+            <label class="col-lg-3 control-label">Heading of the Info Ad</label>
+            <div class="col-lg-8">
+                <div class="ui-button-text-only">
+                    <input type="text"  required="" name="Name" class="form-control"/>
+
+                 </div>
+                </div>
+
+
+                </div>
+
+
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">About Your Car</label>
+                    <div class="col-lg-8">
+                        <div class="ui-button-text-only">
+                            Upload Image: <input type="file" name="Picture" required="" class="form-control" />
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+                <script>
+                    function Count(val) {
+                        var len = val.value.length;
+                        if (len >= 500) {
+                            val.value = val.value.substring(0, 500);
+                        } else {
+                            $('#charNum').text(500 - len);
+                        }
+                    };
+                </script>
+
+
+
+
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Describe Your Car</label>
+
+                    <div class="controls col-md-6">
+                        <textarea name="About" class="character-count ad_listing_description form-control" cols="40" columns="50" data-parsley-pattern-message="Please remove any mobile or phone number from comments." data-parsley-pattern="^(?:(?![0-9]{3}[- ]*[0-9]{7})(.|\n|\r))*$" data-parsley-remote-validator="validateDescription" data-parsley-remote="1" data-parsley-required="true" data-parsley-trigger="change" id="used_car_ad_listing_attributes_description" maxlength="995" name="used_car[ad_listing_attributes][description]" onblur="Count(this)" onkeydown="Count(this)" onkeypress="Count(this)" onkeyup="Count(this)" onpaste="Count(this)" placeholder="Example: Alloy rim, first owner, genuine parts, maintained by authorized workshop, excellent mileage, original paint etc." rows="6"></textarea>
+                        <i>Remaining Characters:</i>
+                        <font id="charNum"> (<strong>500</strong>)</font>
+
+                    </div>
+                </div>
+
+
+
+
+                <div class="form-group">
+                    <label class="col-md-3 control-label"></label>
+                    <div class="col-md-8">
+                        <input type="submit" class="btn btn-primary" value="Save Changes">
+                        <span></span>
+                        <input type="reset" class="btn btn-default" value="Reset">
+                    </div>
+                </div>
+
+
+
+
+</form>
+
+
+</div>
+<hr>

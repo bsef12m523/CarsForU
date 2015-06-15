@@ -1,0 +1,170 @@
+﻿@{
+    ViewBag.Title = "ShowAd";
+}
+
+
+
+@using CPS.Models
+
+
+<head>
+
+    <title></title>
+    <script src="~/Scripts/jquery.mousewheel-3.0.6.pack.js"></script>
+    <link href="~/Scripts/fancyapps-fancyBox-18d1712/source/jquery.fancybox.css" rel="stylesheet" />
+    <script src="~/Scripts/fancyapps-fancyBox-18d1712/source/jquery.fancybox.pack.js"></script>
+    <link href="~/Scripts/fancyapps-fancyBox-18d1712/source/helpers/jquery.fancybox-buttons.css" rel="stylesheet" />
+    <script src="~/Scripts/fancyapps-fancyBox-18d1712/source/helpers/jquery.fancybox-buttons.js"></script>
+    <script src="~/Scripts/fancyapps-fancyBox-18d1712/source/helpers/jquery.fancybox-media.js"></script>
+    <link href="~/Scripts/fancyapps-fancyBox-18d1712/source/helpers/jquery.fancybox-thumbs.css" rel="stylesheet" />
+    <script src="~/Scripts/fancyapps-fancyBox-18d1712/source/helpers/jquery.fancybox-thumbs.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="~/Scripts/jquery-1.10.1.min.js"></script>
+    <script src="~/Scripts/jquery-1.8.2.js"></script>
+
+</head>
+
+<body>
+
+
+    <script type="text/javascript">
+    $(document).ready(function () {
+        $(".fancybox").fancybox();
+    });
+    </script>
+
+
+
+
+
+
+
+
+
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <!-- Page Heading -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">
+                   All Ads
+                </h1>
+            </div>
+        </div>
+       
+        <!-- /.row -->
+        <!-- Project One -->
+        @{int count = 0;}
+        @foreach (Ad i in Model)
+        {
+            
+            count++;
+            <div class="row">
+                <div class="col-md-7">
+                    <a a class="fancybox" rel="group" href="/Files/@(i.Picture)">
+                        <img src="/Files/@(i.Picture)" style=" width:600px; height:300px">
+                    </a>
+                </div>
+                <div class="col-md-5">
+                    <h3>Car: @(i.Company)</h3>
+                    <h4> @(i.Name) 
+                        </h4>
+                    <form class="form-group col-lg-3" action="/User/ViewProfile">
+                        <input type="submit" value="Contact" class=" form-control btn-primary" />
+                        <input type="hidden" value="@i.Id" name="Id">
+
+                    </form>
+                    <p>
+                        This car has new some exciting features
+                        <div class="row">
+                            <div class="col-lg-5">
+                                <ul>
+
+                                    <li>
+                                        Status :@i.Status
+                                    </li>
+                                    <li>
+                                        Colour :@i.Colour
+                                    </li>
+
+                                    <li>
+                                        Model :@i.Model
+                                    </li>
+                                    <li>
+                                        Accidental History:@i.History
+                                    </li>
+
+                                    <li>
+                                        Assembled:@i.Origin
+                                    </li>
+
+
+                                    <li>
+                                        Mileage :@i.Mileage
+                                    </li>
+
+                                    <li>
+                                        Price :@i.Price
+                                    </li>
+                                    <li>
+                                        Registered :@i.Registeration
+                                    </li>
+
+                                </ul>
+                            </div>
+                            <div class="col-lg-5">
+                                <h4>About :</h4> @i.About
+                            </div>
+                        </div>
+
+                    </p>
+                 
+                </div>
+            </div>
+            <!-- /.row -->
+
+            <hr>
+
+        }
+
+        @if (count == 0)
+        {
+            <h2 class="text-danger">No Data To be Shown</h2>
+
+        }
+
+
+        <!-- Pagination -->
+        <div class="row text-center">
+            <div class="col-lg-12">
+                <ul class="pagination">
+                   
+                </ul>
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <hr>
+
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; Cars For You 2015</p>
+                </div>
+            </div>
+            <!-- /.row -->
+        </footer>
+
+    </div>
+    <!-- /.container -->
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+
+</body>

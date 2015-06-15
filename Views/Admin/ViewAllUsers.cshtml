@@ -1,0 +1,117 @@
+﻿@{
+    
+}
+
+@using CPS.Models
+
+
+
+
+
+<head>
+
+    <title></title>
+
+    <script src="~/Scripts/jquery-1.8.2.js"></script>
+    <link href="~/Content/bootstrap.css" rel="stylesheet">
+    <link href="~/Content/themes/bootstrap.min.css" rel="stylesheet">
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src=" ~/Scripts/bootstrap.js"> </script>
+    <script src="~/Scripts/jquery-1.8.2.min.js"> </script>
+    <link href="~/Content/themes/bootstrap.min.css" rel="stylesheet" />
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <div class="container ">
+
+
+        <i class="glyphicon glyphicon-align-justify"></i><div class="container">
+            <h1>Profile</h1>
+            <hr>
+
+
+        @foreach(User ur in Model)
+            {
+            if(ur.Type!="Admin")
+            { 
+            <div class="row">
+                <div class="col-md-7">
+                    <a href="#">
+                        <img src="/Files/@(ur.Picture)" style=" width:600px; height:300px">
+                    </a>
+                </div>
+               
+                <div class="col-md-5">
+                    <h3>Name: @(ur.Name)</h3>
+                    <h4>Phone No: @(ur.PhoneNo)</h4>
+                    <p>
+                        This car has new some exciting features
+                        <div class="row">
+                            <div class="col-lg-5">
+                                <ul>
+
+                                    <li>
+                                        Email :@ur.Email
+                                    </li>
+
+                                   
+                                       
+                                        <li>
+                                            UserId :@ur.Id
+                                        </li>}
+                                        <li>
+                                            Password :@ur.Password
+                                        </li>
+                                        <li>
+                                            City :@ur.City
+                                        </li>
+
+                                        <li>
+                                            Date :@ur.Date
+                                        </li>
+
+
+
+                                    
+
+                                </ul>
+                            </div>
+
+                        </div>
+
+                    </p>
+                    <form class="form-group col-lg-3" action="/User/Delete">
+                        <input type="submit" value="Delete" class=" form-control btn-primary" />
+                        <input type="hidden" value="@ur.Id" name="Id">
+
+                    </form>
+                    <form class="form-group col-lg-3" action="/User/MakeAdmin">
+                        <input type="submit" value="Make Admin" class=" form-control btn-primary" />
+                        <input type="hidden" value="@ur.Id" name="Id">
+
+                    </form>
+
+                </div>
+            </div>
+        }
+        }
+            <!-- /.row -->
+
+            <hr>
+
+
+
+
+
+        </div>
+    </div>
+    </body>

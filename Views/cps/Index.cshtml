@@ -1,0 +1,609 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    
+}
+@using CPS.Models
+
+
+
+
+
+
+<head>
+   <title></title>
+    
+   
+   
+   
+    <style>
+        .carousel-inner > .item > img,
+        .carousel-inner > .item > a > img {
+            width: 70%;
+            margin: auto;
+        }
+    </style>
+    <script>
+        function fun() {
+            document.getElementById(am).disabled = true;
+
+
+        }
+    </script>
+    <style>
+        class1 {
+            background-image: url("~/Images/1.jpg");
+        }
+    </style>
+
+
+
+
+    <script type="text/javascript">
+    $(document).ready(function () {
+        $("#myCarousel").carousel();
+    });
+    </script>
+
+    <script type="text/javascript">
+    $(document).ready(function () {
+        $(".prev-slide").click(function () {
+            $("#myCarousel").carousel('prev');
+            
+        });
+    });
+    </script>
+
+    <script type="text/javascript">
+    $(document).ready(function () {
+        $(".next-slide").click(function () {
+            $("#myCarousel").carousel('next');
+        });
+    });
+    </script>
+
+
+    
+</head>
+
+
+
+
+
+<body style="background-color:ghostwhite">
+
+    @{User u = (User)HttpContext.Current.Session["User"];}
+
+
+
+    @if (u == null)
+    {
+        
+
+        
+
+    <nav class=" navbar navbar-inverse" role="navigation">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/" style="text-decoration-style:wavy; text-decoration-color:burlywood; font-size:xx-large">
+
+                <span class="glyphicon glyphicon-home"></span>
+                Cars4U
+            </a>
+        </div>
+        <div class="navbabar pull-right">
+            <form action="">
+
+                <a class="navbar-brand" href="#signup" data-toggle="modal" data-target=".bs-modal-sm">Sign In/Register</a>
+
+                <a class="navbar-brand" href="#signup" data-toggle="modal" data-target=".bs-modal-sm">BUY</a>
+                <a class="navbar-brand" href="#signup" data-toggle="modal" data-target=".bs-modal-sm">SELL</a>
+                <a class="navbar-brand" href="#signup" data-toggle="modal" data-target="#myModal1">ABOUT</a>
+                <a class="navbar-brand" href="#signup" data-toggle="modal" data-target="#myModal2">CONTACT</a>
+
+            </form>
+
+        </div>
+    </nav>
+    
+
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+        
+    <div class=" container" id="am" >
+
+
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                @{int i = 0;}
+                @if(Model!=null)
+                { 
+                foreach (CarInfo cin in Model)
+                {
+                    if (i == 0)
+                    {
+                        <li data-target="#myCarousel" data-slide-to="@(i++)" class="active"></li>
+                    }
+                    else
+                    {
+                        <li data-target="#myCarousel" data-slide-to="@(i++)"></li>}
+
+                    }
+                    }
+
+            </ol>
+
+
+
+            <!-- Wrapper for slides -->
+
+            <div class="container carousel-inner" role="listitem">
+                
+                @{i=0;}
+                @if(Model!=null)
+                { 
+                    foreach (CarInfo cin in Model)
+                    {
+
+                        if (i == 0)
+                        {
+                            <div class="item active">
+                                <img src="~/Files/@cin.Picture" alt="Chania" style="width:1200px; height:430px">
+                                <hr>
+                                <p style="background:border-box;  background-color:ActiveCaption; background-color:blanchedalmond; text-decoration-color:whitesmoke">@cin.About</p>
+                            
+                                @{i++;}
+
+                            </div>
+
+                        }
+                        else
+                        {
+                            <div class="item">
+                                <img src="~/Files/@cin.Picture" alt="Chania" style="width:1200px; height:430px">
+                                <hr >
+                                <p style="background:border-box;  background-color:ActiveCaption; background-color:blanchedalmond; text-decoration-color:whitesmoke">@cin.About</p>
+                            
+                                @{i++;}
+
+                            </div>
+                        }
+                    }
+                }
+
+                </div>
+
+
+
+            <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+                </div>
+
+
+                    <br>
+
+
+
+
+
+
+                    <div class="contaier ">
+                        <div class="row">
+
+                            @if (u == null)
+                            {
+
+                                <div class="col-sm-12  ">
+                                    <h3 class="text-center login-title">Sign in to get Unlimited Acess</h3>
+                                    <h6 style="color:red">@ViewBag.msg</h6>
+                                    <div class="account-wall">
+                                        <form class="form-signin" action="User/Index">
+                                            <input type="email" class="form-control" name="Email" placeholder="Email" required autofocus>
+                                            <input type="password" class="form-control" name="Password" placeholder="Password" required>
+                                            <button class="btn btn-lg btn-primary btn-block" type="submit">
+                                                Sign in
+                                            </button>
+                                            <label class="checkbox pull-left">
+                                                <input type="checkbox" value="remember-me">
+                                                Remember me
+                                            </label>
+                                        </form>
+                                    </div>
+                                    <a href="#signup" data-toggle="modal" data-target=".bs-modal-sm" class="text-center new-account">Create an account </a>
+
+                                </div>
+                            }
+
+                            else
+                            {
+                                <h3><b><u>Recent Ads</u></b></h3>
+                                foreach (Ad ads in ViewBag.ts)
+                                {
+                                    int con = 0;
+                                    if (con == 2)
+                                    {
+                                        break;
+                                    }
+                                    con++;
+
+                                        <div class="col-md-4">
+                                            <a href="~/Ad/ShowAllAds">
+                                                <img src="/Files/@(ads.Picture)" style=" width:370px; height:300px" class="col-lg-3">
+                                            </a>
+                                        </div>
+
+
+                                  
+                                            
+                                           
+                                               
+                                                      
+                                                       
+
+                                                 
+                                              
+                                                
+                                            
+
+                                       
+
+                                    
+            <!-- /.row -->
+
+
+                                }
+                            }
+
+
+
+                        </div>
+
+                        </div>
+                        <h3><b><u>Quick Links to Your Favourite Cars</u></b></h3>
+                        <div class="col-lg-12">
+                            <a href="http://www.honda.com" >
+                                <h4><b><u>Honda</u></b></h4>
+                                </a>
+                                <a href="http://www.honda.com"> <img src="~/Images/H.jpg" style="width:370px; height:300px;  " class="col-lg-3"></a>
+
+                            <a href="http://www.toyota.com/corolla/">
+                                <h4><b><u>Toyota</u></b></h4>
+                                
+                            </a>
+                                <a href="http://www.toyota.com/corolla/"> <img src="~/Images/T.png" style="width:370px; height:300px " class="col-lg-3"></a>
+                            <div class="row">
+                            <a href="http://www.suzukiauto.com">
+                                <h4><b><u>Suzuki</u></b></h4>
+                                
+                            </a>
+
+                                <a href="http://www.suzukiauto.com"> <img src="~/Images/S.jpg" style="width:370px; height:300px " class="col-lg-3"></a>
+                                </div>
+</div>
+
+
+                    </div>
+
+
+
+
+              
+            
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Modal  for About-->
+    <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header" style="background-color:aliceblue">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">About Car For You</h4>
+                </div>
+                <div class="modal-body">
+                    Website for easy sale and purchase
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Modal  for Contact-->
+
+    <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header" style="background-color:aliceblue">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Contact Us AT</h4>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        Email :bsef12m523@pucit.edu.pk
+                    </p>
+                    <p>
+                        Phone No. 0324-4765586
+                    </p>
+                    <p>
+                        Fax: 042-35211224
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <hr>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+    <!-- Button trigger modal -->
+    <!-- Modal -->
+    <div class="modal fade bs-modal-sm" id="myModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <br>
+                <div class="bs-example bs-example-tabs">
+                    <ul id="myTab" class="nav nav-tabs">
+                        <li class="active"><a href="#signin" data-toggle="tab">Sign In</a></li>
+                        <li class=""><a href="#signup" data-toggle="tab">Register</a></li>
+                        <li class=""><a href="#why" data-toggle="tab">Why?</a></li>
+                    </ul>
+                </div>
+                <div class="modal-body">
+                    <div id="myTabContent" class="tab-content">
+                        <div class="tab-pane fade in" id="why">
+                            <p>We need this information so that you can receive access to the site and its content. Rest assured your information will not be sold, traded, or given to anyone.</p>
+                           <p><br> Please contact <a mailto:href="abdullahmirajb@gmail.com">abdullahmirajb@gmail.com"</a> for any other inquiries.</p>
+                        </div>
+                        <div class="tab-pane fade active in" id="signin">
+                            <form class="form-horizontal" action="User/Index">
+                                <fieldset>
+                                    <!-- Sign In Form -->
+                                    <!-- Text input-->
+                                    <div class="control-group">
+                                        <label class="control-label" for="userid">Email:</label>
+                                        <div class="controls">
+                                            <input  id="userid" name="Email" type="text" class="form-control" placeholder="Abdullah"  required="">
+                                        </div>
+                                    </div>
+
+                                    <!-- Password input-->
+                                    <div class="control-group">
+                                        <label class="control-label" for="passwordinput">Password:</label>
+                                        <div class="controls">
+                                            <input required="" id="passwordinput" name="Password" class="form-control" type="password" placeholder="********" >
+                                        </div>
+                                    </div>
+
+                                    <!-- Multiple Checkboxes (inline) -->
+                                    <div class="control-group">
+                                        <label class="control-label" for="rememberme"></label>
+                                        <div class="controls">
+                                            <label class="checkbox inline" for="rememberme-1">
+                                                <input type="checkbox" name="rememberme" id="rememberme-0" value="Remember me">
+                                                Remember me
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <!-- Button -->
+                                    <div class="control-group">
+                                        <label class="control-label" for="signin"></label>
+                                        <div class="controls">
+                                            <button id="signin" name="signin" class="btn btn-success">Sign In</button>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </form>
+                        </div>
+
+
+
+
+
+
+                        <div class="tab-pane fade" id="signup">
+                            <form class="form-horizontal" action="User/Register" method="post" enctype="multipart/form-data">
+                                <fieldset>
+                                    <!-- Sign Up Form -->
+                                    <!-- Text input-->
+                                    <!-- Text input-->
+                                    <div class="control-group">
+                                        <label class="control-label" for="userid">Name:</label>
+                                        <div class="controls">
+                                            <input id="userid" name="Name" class="form-control" type="text" placeholder="Abdullah"  required="">
+                                        </div>
+                                    </div>
+
+
+                                    <div class="control-group">
+                                        <label class="control-label" for="Email">Email:</label>
+                                        <div class="controls">
+                                            <input id="Email" name="Email" class="form-control" type="text" placeholder="abdullahmirajb@gmail.com"   required="">
+                                            <input type="button" id="b1" value="Check" />
+                                        </div>
+                                        
+                                        <div id="result"></div>
+                                        @Scripts.Render("~/bundles/jquery")
+                                        <script>
+
+                                            $(document).ready(function () {
+
+                                                $('#checking').hide();
+
+                                                $('#b1').click(function () {
+
+                                                    var userName = $('#Email').val();
+
+                                                    //alert('User Name ='+ userName);
+                                                    $('#checking').show();
+                                                    $.getJSON("/User/CheckUserName?UserName=" + Email, function (data) {
+                                                        $('#checking').hide();
+                                                        if (data) {
+                                                            $('#result').text("User already exists in database");
+
+                                                        }
+                                                        else {
+                                                            $('#result').text("User Name is available");
+                                                        }
+                                                    });
+
+                                                });
+
+                                            });
+                                        </script>
+
+
+                                    </div>
+
+
+                                    <!-- Password input-->
+                                    <div class="control-group">
+                                        <label class="control-label" for="password">Password:</label>
+                                        <div class="controls">
+                                            <input id="password" name="Password" class="form-control" type="password" placeholder="********" required="">
+                                            <em>1-8 Characters</em>
+                                        </div>
+                                    </div>
+
+                                    <!-- Text input-->
+
+                                    <div class="control-group">
+                                        <label class="control-label" for="phone #">Phone No:</label>
+                                        <div class="controls">
+                                            <input id="password" name="PhoneNo" class="form-control" type="number" placeholder="042-37282741" required="">
+                                            <em>0300-1231233</em>
+                                        </div>
+                                    </div>
+
+                                    <div class="control-group">
+                                        <label class="control-label">City:</label>
+                                        <div class="controls">
+                                            <input required="" id="City" name="City" class="form-control" type="text" placeholder="Lahore" >
+                                        </div>
+                                    </div>
+
+                                    <div class="control-group">
+                                        <label class="control-label" for="passwordinput">Password:</label>
+                                        <div class="controls">
+                                            Upload Image: <input type="file" name="image" />
+                                            
+                                        </div>
+                                    </div>
+
+                                    <!-- Multiple Radios (inline) -->
+                                    <br>
+
+
+                                    <!-- Button -->
+                                    <div class="control-group">
+                                        <label class="control-label" for="confirmsignup"></label>
+                                        <div class="controls">
+                                            <button id="confirmsignup" name="confirmsignup" class="btn btn-success">Sign Up</button>
+                                            <em>Sign In After Registeration</em>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    
+                    <center>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </center>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+
+    </script>
+
+         
+
+
+</body>
+
+
+
+
+<script>
+
+</script>
+
+

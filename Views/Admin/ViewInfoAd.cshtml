@@ -1,0 +1,107 @@
+﻿@{
+    ViewBag.Title = "ViewInfoAd";
+}
+
+@using CPS.Models
+
+<head>
+
+    <title></title>
+
+</head>
+
+<body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <!-- Page Heading -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">
+                    All Ads
+                </h1>
+            </div>
+        </div>
+        @ViewBag.Sorry
+        <!-- /.row -->
+        <!-- Project One -->
+        @{int count = 0;}
+        @foreach (CarInfo i in Model)
+        {
+
+            count++;
+            <div class="row">
+                <div class="col-md-7">
+                    <a href="#">
+                        <img src="/Files/@(i.Picture)" style=" width:600px; height:300px">
+                    </a>
+                </div>
+                <div class="col-md-5">
+
+                    <div class="col-lg-5">
+
+                        <h2>@i.Name</h2> @i.About
+                    </div>
+                </div>
+
+                <form action="Visibility">
+                    <label class="col-lg-3 control-label">Visible</label>
+                    <input type="submit" name="visible" class="btn-primary" value="@i.Visible" />
+                    <input type="hidden" name="Id" value="@i.Id">
+
+                </form>
+                <form action="Delete">
+                   
+                    <input type="submit" name="visible" class="btn-primary" value="Delete" />
+                    <input type="hidden" name="Id" value="@i.Id">
+
+                </form>
+
+
+            </div>
+   
+
+            <!-- /.row -->
+
+            <hr>
+
+        }
+    </div>
+
+        @if (count == 0)
+        {
+            <h2 class="text-danger">No Data To be Shown</h2>
+
+        }
+
+
+        <!-- Pagination -->
+       
+        <!-- /.row -->
+
+        <hr>
+
+        <!-- Footer -->
+    
+    <!-- /.container -->
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+
+</body>

@@ -1,0 +1,178 @@
+﻿@{
+    ViewBag.Title = "ShowAd";
+}
+
+
+
+@using CPS.Models
+
+<head>
+
+    <link href="~/Content/bootstrap.css" rel="stylesheet">
+    <link href="~/Content/themes/bootstrap.min.css" rel="stylesheet">
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>1 Col Portfolio - Start Bootstrap Template</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/1-col-portfolio.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <!-- Page Heading -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">
+                   My Ads
+                </h1>
+            </div>
+        </div>
+        <!-- /.row -->
+        <!-- Project One -->
+        @{int count = 0;}
+        @foreach (Ad i in Model)
+        {
+          
+            count++;
+            <div class="row">
+                <div class="col-md-7">
+                    <a href="#">
+                        <img src="/Files/@(i.Picture)" style=" width:600px; height:300px">
+                    </a>
+                </div>
+                <div class="col-md-5">
+                    <h3>Car: @(i.Company)</h3>
+                    <h4> @(i.Name)</h4>
+                    <p>
+                        This car has new some exciting features
+                        <div class="row">
+                            <div class="col-lg-5">
+                                <ul>
+
+                                    <li>
+                                        Status :@i.Status
+                                    </li>
+                                    <li>
+                                        Colour :@i.Colour
+                                    </li>
+
+                                    <li>
+                                        Model :@i.Model
+                                    </li>
+                                    <li>
+                                        Accidental History:@i.History
+                                    </li>
+
+                                    <li>
+                                        Assembled:@i.Origin
+                                    </li>
+
+
+                                    <li>
+                                        Mileage :@i.Mileage
+                                    </li>
+
+                                    <li>
+                                        Price :@i.Price
+                                    </li>
+                                    <li>
+                                        Registered :@i.Registeration
+                                    </li>
+
+                                </ul>
+                            </div>
+                            <div class="col-lg-5">
+                                <h4>About :</h4> @i.About
+                            </div>
+                        </div>
+
+                    </p>
+                    <div class="row">
+                        <form class="form-group col-lg-3" action="ShowAd">
+                            <input type="submit" value="Delete" class=" form-control btn-primary" />
+                            <input type="hidden"value="@i.Id" name="Id">
+
+                        </form>
+                        @{User u = (User)HttpContext.Current.Session["User"];}
+                        @if(u.Type!="Admin")
+                        { 
+                            
+                        <form class="form-group col-lg-3" action="EditAd">
+                            <input type="submit" value="Edit" class=" form-control btn-primary" />
+                            <input type="hidden" value="@i.Id" name="Id">
+                        </form>
+                        }
+                    </div>
+                </div>
+            </div>
+            <!-- /.row -->
+
+            <hr>
+
+        }
+        
+        @if (count == 0)
+        {
+            <h2 class="text-danger">No Data To be Shown</h2>
+            
+        }
+
+
+        <!-- Pagination -->
+
+        <!-- /.row -->
+
+        <hr>
+
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; Cars For You 2015</p>
+                </div>
+            </div>
+            <!-- /.row -->
+        </footer>
+
+    </div>
+    <!-- /.container -->
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    
+</body>
