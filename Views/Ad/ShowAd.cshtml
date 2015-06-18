@@ -120,9 +120,9 @@
 
                     </p>
                     <div class="row">
-                        <form class="form-group col-lg-3" action="ShowAd">
+                        <form class="form-group col-lg-3" action="DeleteAd">
                             <input type="submit" value="Delete" class=" form-control btn-primary" />
-                            <input type="hidden"value="@i.Id" name="Id">
+                            <input type="hidden" value="@i.Id" name="Id">
 
                         </form>
                         @{User u = (User)HttpContext.Current.Session["User"];}

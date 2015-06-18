@@ -49,7 +49,6 @@
     $(document).ready(function () {
         $(".prev-slide").click(function () {
             $("#myCarousel").carousel('prev');
-            
         });
     });
     </script>
@@ -150,9 +149,7 @@
             <!-- Indicators -->
             <ol class="carousel-indicators">
                 @{int i = 0;}
-                @if(Model!=null)
-                { 
-                foreach (CarInfo cin in Model)
+                @foreach (CarInfo cin in Model)
                 {
                     if (i == 0)
                     {
@@ -162,7 +159,6 @@
                     {
                         <li data-target="#myCarousel" data-slide-to="@(i++)"></li>}
 
-                    }
                     }
 
             </ol>
@@ -174,34 +170,31 @@
             <div class="container carousel-inner" role="listitem">
                 
                 @{i=0;}
-                @if(Model!=null)
-                { 
-                    foreach (CarInfo cin in Model)
+                @foreach (CarInfo cin in Model)
+                {
+
+                    if (i == 0)
                     {
-
-                        if (i == 0)
-                        {
-                            <div class="item active">
-                                <img src="~/Files/@cin.Picture" alt="Chania" style="width:1200px; height:430px">
-                                <hr>
-                                <p style="background:border-box;  background-color:ActiveCaption; background-color:blanchedalmond; text-decoration-color:whitesmoke">@cin.About</p>
+                        <div class="item active">
+                            <img src="~/Files/@cin.Picture" alt="Chania" style="width:1200px; height:430px">
+                            <hr>
+                            <p style="background:border-box;  background-color:ActiveCaption; background-color:blanchedalmond; text-decoration-color:whitesmoke">@cin.About</p>
                             
-                                @{i++;}
+                            @{i++;}
 
-                            </div>
+                        </div>
 
-                        }
-                        else
-                        {
-                            <div class="item">
-                                <img src="~/Files/@cin.Picture" alt="Chania" style="width:1200px; height:430px">
-                                <hr >
-                                <p style="background:border-box;  background-color:ActiveCaption; background-color:blanchedalmond; text-decoration-color:whitesmoke">@cin.About</p>
+                    }
+                    else
+                    {
+                        <div class="item">
+                            <img src="~/Files/@cin.Picture" alt="Chania" style="width:1200px; height:430px">
+                            <hr >
+                            <p style="background:border-box;  background-color:ActiveCaption; background-color:blanchedalmond; text-decoration-color:whitesmoke">@cin.About</p>
                             
-                                @{i++;}
+                            @{i++;}
 
-                            </div>
-                        }
+                        </div>
                     }
                 }
 
@@ -256,9 +249,7 @@
 
                             else
                             {
-                                if (u != null&&ViewBag.ts!=null) { 
-                                <h3><b><u>Recent Ads</u></b></h3>
-                                
+                                <h3 style="font-family:Britannic"><b><u>Recent Ads</u></b></h3>
                                 foreach (Ad ads in ViewBag.ts)
                                 {
                                     int con = 0;
@@ -270,13 +261,29 @@
 
                                         <div class="col-md-4">
                                             <a href="~/Ad/ShowAllAds">
-                                                <img src="/Files/@(ads.Picture)" style=" width:370px; height:300px" class="col-lg-3">
+                                                <img src="/Files/@(ads.Picture)" style=" width:370px; height:200px" class="col-lg-3">
                                             </a>
-                                        </div>                                                                                                                                                                                                                                                                                                            
+                                        </div>
+
+
+                                  
+                                            
+                                           
+                                               
+                                                      
+                                                       
+
+                                                 
+                                              
+                                                
+                                            
+
+                                       
+
+                                    
             <!-- /.row -->
 
 
-                                }
                                 }
                             }
 
@@ -422,7 +429,7 @@
                                     <div class="control-group">
                                         <label class="control-label" for="userid">Email:</label>
                                         <div class="controls">
-                                            <input  id="userid" name="Email" type="text" class="form-control" placeholder="Abdullah"  required="">
+                                            <input  id="userid" name="Email" type="text" class="form-control" placeholder="Abdullah" class="input-medium" required="">
                                         </div>
                                     </div>
 
@@ -430,7 +437,7 @@
                                     <div class="control-group">
                                         <label class="control-label" for="passwordinput">Password:</label>
                                         <div class="controls">
-                                            <input required="" id="passwordinput" name="Password" class="form-control" type="password" placeholder="********" >
+                                            <input required="" id="passwordinput" name="Password" class="form-control" type="password" placeholder="********" class="input-medium">
                                         </div>
                                     </div>
 
@@ -469,8 +476,8 @@
                                     <!-- Text input-->
                                     <div class="control-group">
                                         <label class="control-label" for="userid">Name:</label>
-                                        <div class="controls">view
-                                            <input id="userid" name="Name" class="form-control" type="text" placeholder="Abdullah"  required="">
+                                        <div class="controls">
+                                            <input id="userid" name="Name" class="form-control" type="text" placeholder="Abdullah" class="input-large" required="">
                                         </div>
                                     </div>
 
@@ -478,7 +485,7 @@
                                     <div class="control-group">
                                         <label class="control-label" for="Email">Email:</label>
                                         <div class="controls">
-                                            <input id="Email" name="Email" class="form-control" type="text" placeholder="abdullahmirajb@gmail.com"   required="">
+                                            <input id="Email" name="Email" class="form-control" type="text" placeholder="abdullahmirajb@gmail.com"  class=" input-large" required="">
                                             <input type="button" id="b1" value="Check" />
                                         </div>
                                         
@@ -520,7 +527,7 @@
                                     <div class="control-group">
                                         <label class="control-label" for="password">Password:</label>
                                         <div class="controls">
-                                            <input id="password" name="Password" class="form-control" type="password" placeholder="********" required="">
+                                            <input id="password" name="Password" class="form-control" type="password" placeholder="********" class="input-large" required="">
                                             <em>1-8 Characters</em>
                                         </div>
                                     </div>
@@ -530,7 +537,7 @@
                                     <div class="control-group">
                                         <label class="control-label" for="phone #">Phone No:</label>
                                         <div class="controls">
-                                            <input id="password" name="PhoneNo" class="form-control" type="number" placeholder="042-37282741" required="">
+                                            <input id="password" name="PhoneNo" class="form-control" type="number" placeholder="042-37282741" class="input-large" required="">
                                             <em>0300-1231233</em>
                                         </div>
                                     </div>
@@ -538,7 +545,7 @@
                                     <div class="control-group">
                                         <label class="control-label">City:</label>
                                         <div class="controls">
-                                            <input required="" id="City" name="City" class="form-control" type="text" placeholder="Lahore" >
+                                            <input required="" id="City" name="City" class="form-control" type="text" placeholder="Lahore" class="input-medium">
                                         </div>
                                     </div>
 
